@@ -42,9 +42,10 @@ resource "aws_vpc" "main" {
 
 # Create public subnets1
 resource "aws_subnet" "public1" {
+  count = 2
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "172.16.0.0/24"
   map_public_ip_on_launch = true
-  availability_zone       = "us-east-2a"
+  availability_zone       = data.aws_availability_zones.available.names[count.index]
 }
 
