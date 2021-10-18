@@ -1,5 +1,9 @@
+variable "region" {
+    default = "us-west-2"
+}
+
 provider "aws" {
-  region = "us-east-2"
+  region = var.region
 }
 
 # Create VPC
