@@ -27,6 +27,10 @@ variable "enable_classiclink_dns_support" {
   default = "false"
 }
 
+variable "preferred_number_of_public_subnets" {
+  default = 2
+}
+
 provider "aws" {
   region = var.region
 }
