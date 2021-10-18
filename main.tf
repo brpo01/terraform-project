@@ -1,25 +1,30 @@
+# Get list of availability zones
+data "aws_availability_zones" "available" {
+    state = "available"
+}
+
 variable "region" {
-    default = "us-west-2"
+  default = "us-west-2"
 }
 
 variable "vpc_cidr" {
-    default = "172.16.0.0/16"
+  default = "172.16.0.0/16"
 }
 
 variable "enable_dns_support" {
-    default = "true"
+  default = "true"
 }
 
 variable "enable_dns_hostnames" {
-    default ="true" 
+  default = "true"
 }
 
 variable "enable_classiclink" {
-    default = "false"
+  default = "false"
 }
 
 variable "enable_classiclink_dns_support" {
-    default = "false"
+  default = "false"
 }
 
 provider "aws" {
@@ -36,17 +41,17 @@ resource "aws_vpc" "main" {
 }
 
 # Create public subnets1
-    resource "aws_subnet" "public1" {
-    vpc_id                     = aws_vpc.main.id
-    cidr_block                 = "172.16.0.0/24"
-    map_public_ip_on_launch    = true
-    availability_zone          = "us-east-2a"
+resource "aws_subnet" "public1" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.16.0.0/24"
+  map_public_ip_on_launch = true
+  availability_zone       = "us-east-2a"
 }
 
 # Create public subnet2
-    resource "aws_subnet" "public2" {
-    vpc_id                     = aws_vpc.main.id
-    cidr_block                 = "172.16.1.0/24"
-    map_public_ip_on_launch    = true
-    availability_zone          = "us-east-2b"
+resource "aws_subnet" "public2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.16.1.0/24"
+  map_public_ip_on_launch = true
+  availability_zone       = "us-east-2b"
 }
