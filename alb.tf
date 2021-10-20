@@ -145,7 +145,7 @@ resource "aws_lb_listener_rule" "tooling-listener" {
 
   condition {
     host_header {
-      values = ["tooling.oyindamola.gq"]
+      values = ["tooling.dev-rotimi.ml"]
     }
   }
 }
