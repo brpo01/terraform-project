@@ -98,3 +98,31 @@ resource "aws_launch_template" "nginx-launch-template" {
 
   user_data = filebase64("${path.module}/nginx.sh")
 }
+
+# ------ Autoscslaling group for reverse proxy nginx ---------
+
+resource "aws_autoscaling_group" "nginx-asg" {
+  name                      = "nginx-asg"
+  max_size                  = 2
+  min_size                  = 1
+  health_check_grace_period = 300
+  health_check_type         = "ELB"
+  desired_capacity          = 1
+
+  vpc_zone_identifier = [
+    aws_subnet.public[0].id,
+    aws_subnet.public[1].id
+  ]
+
+  launch_template {
+    id      = aws_launch_template.nginx-launch-template.id
+    version = "$Latest"
+  }
+
+  tag {
+    key                 = "Name"
+    value               = "nginx-launch-template"
+    propagate_at_launch = true
+  }
+
+}
