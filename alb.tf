@@ -22,7 +22,7 @@ resource "aws_lb" "ext-alb" {
   load_balancer_type = "application"
 }
 
-// target group resource to inform loadbalancer where to route traffic
+// nginx target group resource to inform loadbalancer where to route traffic
 resource "aws_lb_target_group" "nginx-tgt" {
   health_check {
     interval            = 10
@@ -51,3 +51,31 @@ resource "aws_lb_listener" "nginx-listner" {
     target_group_arn = aws_lb_target_group.nginx-tgt.arn
   }
 }
+
+# ----------------------------
+#Internal Load Balancers for webservers
+#---------------------------------
+
+resource "aws_lb" "ialb" {
+  name     = "ialb"
+  internal = true
+  security_groups = [
+    aws_security_group.int-alb-sg.id,
+  ]
+
+  subnets = [
+    aws_subnet.private[0].id,
+    aws_subnet.private[1].id
+  ]
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "ACS-int-alb"
+    },
+  )
+
+  ip_address_type    = "ipv4"
+  load_balancer_type = "application"
+}
+
