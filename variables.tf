@@ -39,3 +39,7 @@ variable "tags" {
 variable "max_subnets" {
   default = 10
 }
+
+variable "environment" {
+  default = "production"
+}
