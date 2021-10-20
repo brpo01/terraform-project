@@ -7,8 +7,8 @@ resource "aws_lb" "ext-alb" {
   ]
 
   subnets = [
-    aws_subnet.public[0].id,
-    aws_subnet.public[1].id
+    aws_subnet.public_subnet[0].id,
+    aws_subnet.public_subnet[1].id
   ]
 
    tags = merge(
@@ -64,8 +64,8 @@ resource "aws_lb" "ialb" {
   ]
 
   subnets = [
-    aws_subnet.private[0].id,
-    aws_subnet.private[1].id
+    aws_subnet.private_subnet[0].id,
+    aws_subnet.private_subnet[1].id
   ]
 
   tags = merge(
