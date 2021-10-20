@@ -1,8 +1,8 @@
 # The entire section create a certiface, public zone, and validate the certificate using DNS method
 
-# Create the certificate using a wildcard for all the domains created in oyindamola.gq
-resource "aws_acm_certificate" "oyindamola" {
-  domain_name       = "*.oyindamola.gq"
+# Create the certificate using a wildcard for all the domains created in dev-rotimi.ml
+resource "aws_acm_certificate" "rotimi" {
+  domain_name       = "*.dev-rotimi.ml"
   validation_method = "DNS"
 }
 
