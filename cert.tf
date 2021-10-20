@@ -6,7 +6,7 @@ resource "aws_acm_certificate" "rotimi" {
   validation_method = "DNS"
 }
 
-# calling the hosted zone
+# calling the hosted zone- create the hosted zone in your route53 console
 data "aws_route53_zone" "rotimi" {
   name         = "dev-rotimi.ml"
   private_zone = false
