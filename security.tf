@@ -172,7 +172,7 @@ resource "aws_security_group_rule" "inbound-web-ssh" {
   security_group_id        = aws_security_group.webserver-sg.id
 }
 
-# security group for datalayer to alow traffic from websever on nfs and mysql port and bastion host on mysql port
+# security group for datalayer to allow traffic from webserver on nfs and mysql port and bastion host on mysql port
 resource "aws_security_group" "datalayer-sg" {
   name   = "datalayer-sg"
   vpc_id = aws_vpc.main.id
