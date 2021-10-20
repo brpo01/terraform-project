@@ -27,7 +27,7 @@ variable "preferred_number_of_public_subnets" {
 }
 
 variable "preferred_number_of_private_subnets" {
-  default = 5
+  default = 4
 }
 
 variable "tags" {
