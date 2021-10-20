@@ -35,3 +35,7 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "max_subnets" {
+  default = 10
+}
