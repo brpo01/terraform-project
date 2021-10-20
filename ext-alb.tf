@@ -13,7 +13,7 @@ resource "aws_lb" "ext-alb" {
    tags = merge(
     var.tags,
     {
-      Name = "ACS-ext-alb"
+      Name = "main-ext-alb"
     },
   )
 
