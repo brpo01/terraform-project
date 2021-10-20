@@ -99,3 +99,31 @@ resource "aws_launch_template" "tooling-launch-template" {
 
   user_data = filebase64("${path.module}/tooling.sh")
 }
+
+# ---- Autoscaling for tooling -----
+
+resource "aws_autoscaling_group" "tooling-asg" {
+  name                      = "tooling-asg"
+  max_size                  = 2
+  min_size                  = 1
+  health_check_grace_period = 300
+  health_check_type         = "ELB"
+  desired_capacity          = 1
+
+  vpc_zone_identifier = [
+
+    aws_subnet.private[0].id,
+    aws_subnet.private[1].id
+  ]
+
+  launch_template {
+    id      = aws_launch_template.tooling-launch-template.id
+    version = "$Latest"
+  }
+
+  tag {
+    key                 = "Name"
+    value               = "tooling-launch-template"
+    propagate_at_launch = true
+  }
+}
