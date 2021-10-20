@@ -39,6 +39,7 @@ resource "aws_lb_target_group" "nginx-tgt" {
   vpc_id      = aws_vpc.main.id
 }
 
+// loadbalancer listener resource for knowing what port to listen & route traffic to target group
 resource "aws_lb_listener" "nginx-listner" {
   load_balancer_arn = aws_lb.ext-alb.arn
   port              = 443
