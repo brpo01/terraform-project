@@ -65,7 +65,7 @@ resource "aws_security_group" "bastion_sg" {
   )
 }
 
-#security group for nginx reverse proxy, to allow access only from the extaernal load balancer and bastion instance
+#security group for nginx reverse proxy, to allow access only from the external load balancer and bastion instance
 resource "aws_security_group" "nginx-sg" {
   name   = "nginx-sg"
   vpc_id = aws_vpc.main.id
@@ -172,7 +172,7 @@ resource "aws_security_group_rule" "inbound-web-ssh" {
   security_group_id        = aws_security_group.webserver-sg.id
 }
 
-# security group for datalayer to alow traffic from websever on nfs and mysql port and bastiopn host on mysql port
+# security group for datalayer to alow traffic from websever on nfs and mysql port and bastion host on mysql port
 resource "aws_security_group" "datalayer-sg" {
   name   = "datalayer-sg"
   vpc_id = aws_vpc.main.id
