@@ -40,7 +40,7 @@ resource "aws_lb_target_group" "nginx-tgt" {
 }
 
 // loadbalancer listener resource for knowing what port to listen & route traffic to target group
-resource "aws_lb_listener" "nginx-listner" {
+resource "aws_lb_listener" "nginx-listener" {
   load_balancer_arn = aws_lb.ext-alb.arn
   port              = 443
   protocol          = "HTTPS"
