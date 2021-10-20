@@ -42,7 +42,7 @@ resource "aws_subnet" "private_subnet" {
   tags = merge(
     var.tags,
     {
-      Name = "private-subnet-${count.index+2}"
+      Name = "private-subnet-${count.index}"
     }
   )
 }
