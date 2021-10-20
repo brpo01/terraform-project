@@ -41,6 +41,7 @@ resource "aws_subnet" "public_subnet" {
     var.tags,
     {
       Name = format("public-subnet-%s", count.index)
+    }
   )
 }
 
