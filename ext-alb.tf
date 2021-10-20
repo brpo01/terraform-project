@@ -38,3 +38,15 @@ resource "aws_lb_target_group" "nginx-tgt" {
   target_type = "instance"
   vpc_id      = aws_vpc.main.id
 }
+
+resource "aws_lb_listener" "nginx-listner" {
+  load_balancer_arn = aws_lb.ext-alb.arn
+  port              = 443
+  protocol          = "HTTPS"
+  certificate_arn   = aws_acm_certificate_validation.rotimi.certificate_arn
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.nginx-tgt.arn
+  }
+}
