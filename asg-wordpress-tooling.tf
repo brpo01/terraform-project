@@ -12,7 +12,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
   key_name = var.keypair
 
   placement {
-    availability_zone = random_shuffle.az_list.result
+    availability_zone = "${random_shuffle.az_list.result}"
   }
 
   lifecycle {
@@ -78,7 +78,7 @@ resource "aws_launch_template" "tooling-launch-template" {
   key_name = var.keypair
 
   placement {
-    availability_zone = random_shuffle.az_list.result
+    availability_zone = "${random_shuffle.az_list.result}"
   }
 
   lifecycle {
