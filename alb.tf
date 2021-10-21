@@ -71,7 +71,7 @@ resource "aws_lb" "ialb" {
   tags = merge(
     var.tags,
     {
-      Name = "ACS-int-alb"
+      Name = "main-int-alb"
     },
   )
 
