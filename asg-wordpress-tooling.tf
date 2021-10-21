@@ -44,8 +44,8 @@ resource "aws_autoscaling_group" "wordpress-asg" {
   health_check_type         = "ELB"
   desired_capacity          = 1
   vpc_zone_identifier = [
-    aws_subnet.private[0].id,
-    aws_subnet.private[1].id
+    aws_subnet.private_subnet[0].id,
+    aws_subnet.private_subnet[1].id
   ]
 
   launch_template {
@@ -111,9 +111,8 @@ resource "aws_autoscaling_group" "tooling-asg" {
   desired_capacity          = 1
 
   vpc_zone_identifier = [
-
-    aws_subnet.private[0].id,
-    aws_subnet.private[1].id
+    aws_subnet.private_subnet[0].id,
+    aws_subnet.private_subnet[1].id
   ]
 
   launch_template {
