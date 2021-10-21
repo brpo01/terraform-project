@@ -38,7 +38,7 @@ resource "aws_security_group" "ext-alb-sg" {
 
 # security group for bastion, to allow access into the bastion host from you IP
 resource "aws_security_group" "bastion_sg" {
-  name        = "vpc_web_sg"
+  name        = "bastion_sg"
   vpc_id = aws_vpc.main.id
   description = "Allow incoming HTTP connections."
 
