@@ -12,7 +12,7 @@ resource "aws_db_subnet_group" "ACS-rds" {
 }
 
 # create the RDS instance with the subnets group
-resource "aws_db_instance" "ACS-rds" {
+resource "aws_db_instance" "main-rds" {
   allocated_storage      = 20
   storage_type           = "gp2"
   engine                 = "mysql"
