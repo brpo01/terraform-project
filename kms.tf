@@ -1,5 +1,5 @@
 # create key from key management system
-resource "aws_kms_key" "ACS-kms" {
+resource "aws_kms_key" "main-kms" {
   description = "KMS key "
   policy      = <<EOF
   {
@@ -21,5 +21,5 @@ EOF
 # create key alias
 resource "aws_kms_alias" "alias" {
   name          = "alias/kms"
-  target_key_id = aws_kms_key.ACS-kms.key_id
+  target_key_id = aws_kms_key.main-kms.key_id
 }
