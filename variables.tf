@@ -13,7 +13,7 @@ variable "enable_dns_support" {
 }
 
 variable "enable_dns_hostnames" {
-  dtype = bool
+  type = bool
 }
 
 variable "enable_classiclink" {
