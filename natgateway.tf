@@ -19,7 +19,7 @@ resource "aws_nat_gateway" "nat" {
   tags = merge(
     var.tags,
     {
-      Name = format("%s-Nat", var.name)
+      Name = format("%s-Nat", var.name, var.environment)
     },
   )
 }
