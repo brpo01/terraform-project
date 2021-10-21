@@ -6,7 +6,7 @@ resource "aws_eip" "nat_eip" {
   tags = merge(
     var.tags,
     {
-      Name = format("%s-EIP", var.name)
+      Name = format("%s-EIP", var.name, var.environment)
     },
   )
 }
