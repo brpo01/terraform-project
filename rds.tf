@@ -18,7 +18,7 @@ resource "aws_db_instance" "main-rds" {
   engine                 = "mysql"
   engine_version         = "5.7"
   instance_class         = "db.t2.micro"
-  name                   = "rotimidb"
+  name                   = "maindb"
   username               = var.master-username
   password               = var.master-password
   parameter_group_name   = "default.mysql5.7"
