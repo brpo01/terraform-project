@@ -26,4 +26,11 @@ resource "aws_db_instance" "main-rds" {
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.datalayer-sg.id]
   multi_az               = "true"
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "maindb"
+    },
+  )
 }
