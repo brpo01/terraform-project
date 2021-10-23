@@ -19,12 +19,16 @@ variable "enable_classiclink_dns_support" {
   type = bool
 }
 
-variable "preferred_number_of_public_subnets" {
+variable "public_sn_count" {
   type        = number
   description = "Number of public subnets"
 }
 
-variable "preferred_number_of_private_subnets" {
+variable "private_sn_count" {
   type        = number
   description = "Number of private subnets"
 }
+
+variable "public_cidr" {}
+
+variable "private_cidr" {}

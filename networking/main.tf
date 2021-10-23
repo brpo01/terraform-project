@@ -27,9 +27,9 @@ resource "aws_vpc" "main" {
 
 # Create public subnets1
 resource "aws_subnet" "public_subnet" {
-  count = var.public_subnets
+  count = var.public_sn_count
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = var.public_cidr
+  cidr_block              = var.public_cidr[count.index]
   map_public_ip_on_launch = true
   availability_zone       = data.aws_availability_zones.available.names[count.index]
 
@@ -42,9 +42,9 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_subnet" "private_subnet" {
-  count = var.private_subnets
+  count = var.private_sn_count
   vpc_id = aws_vpc.main.id
-  cidr_block = var.private_cidr
+  cidr_block = var.private_cidr[count.index]
   map_public_ip_on_launch = true
   availability_zone = data.aws_availability_zones.available.names[count.index]
   tags = merge(

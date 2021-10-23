@@ -3,10 +3,14 @@ variable "region" {
   description = "The region to deploy resources"
 }
 
+variable "vpc_cidr" {
+  type = string
+  description = "The VPC cidr"
+}
+
 variable "name" {
   type    = string
   default = "main"
-
 }
 
 variable "tags" {
