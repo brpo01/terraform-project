@@ -9,5 +9,11 @@ module "networking" {
   public_cidr = [for i in range(2,6,2) : cidrsubnet(var.vpc_cidr, 8, i)]
   private_sn_count = 4
   private_cidr = [for i in range(1,9,2): cidrsubnet(var.vpc_cidr, 8, i)]
-  security_group = local.security_group
 }
+
+module "security" {
+  source = "./security"
+  security_group = local.security_group
+  vpc_id = module.networking.vpc_id
+}
+
