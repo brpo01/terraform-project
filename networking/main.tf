@@ -25,7 +25,7 @@ resource "aws_vpc" "main" {
   )
 }
 
-# Create public subnets1
+# Create public subnets
 resource "aws_subnet" "public_subnet" {
   count = var.public_sn_count
   vpc_id                  = aws_vpc.main.id
@@ -41,6 +41,7 @@ resource "aws_subnet" "public_subnet" {
   )
 }
 
+# Create public subnets
 resource "aws_subnet" "private_subnet" {
   count = var.private_sn_count
   vpc_id = aws_vpc.main.id
@@ -55,3 +56,14 @@ resource "aws_subnet" "private_subnet" {
   )
 }
 
+# internet gateway
+resource "aws_internet_gateway" "main_igw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-%s!", "ig-",aws_vpc.main.id)
+    } 
+  )
+}
