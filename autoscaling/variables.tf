@@ -14,6 +14,10 @@ variable "private_subnet0" {}
 
 variable "private_subnet1" {}
 
-variable "wordpress_launch_template" {}
+variable "wordpress_tgt_arn" {}
+
+variable "tooling_tgt_arn" {}
+
+
 
 

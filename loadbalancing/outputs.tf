@@ -9,3 +9,11 @@ output "ext-alb-dns-name" {
 output "nginx_tgt_arn" {
     value = aws_lb_target_group.nginx-tgt.arn
 }
+
+output "wordpress_tgt_arn" {
+    value = aws_lb_target_group.wordpress-tgt.arn
+}
+
+output "tooling_tgt_arn" {
+    value = aws_lb_target_group.tooling-tgt.arn
+}
