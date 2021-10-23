@@ -1,3 +1,8 @@
+variable "region" {
+  type = string
+  description = "The region to deploy resources"
+}
+
 variable "name" {
   type    = string
   default = "main"
