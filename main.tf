@@ -66,4 +66,8 @@ module "compute" {
 module "autoscaling" {
   source = "./autoscaling"
   public_subnet = module.networking.public_subnet
+  bastion_launch_template = module.compute.bastion_launch_template
+  nginx-nginx_launch_template = module.compute.nginx_launch_template
+  nginx_tgt_arn = module.loadbalancing.nginx_tgt_arn
+  
 }
