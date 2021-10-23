@@ -72,7 +72,7 @@ resource "aws_autoscaling_group" "wordpress-asg" {
   ]
 
   launch_template {
-    id      = aws_launch_template.wordpress-launch-template.id
+    id      = var.wordpress_launch_template
     version = "$Latest"
   }
   tag {

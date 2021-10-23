@@ -69,5 +69,8 @@ module "autoscaling" {
   bastion_launch_template = module.compute.bastion_launch_template
   nginx-nginx_launch_template = module.compute.nginx_launch_template
   nginx_tgt_arn = module.loadbalancing.nginx_tgt_arn
+  private_subnet0 = module.networking.private_subnet0
+  private_subnet1 = module.networking.private_subnet1
+  wordpress_launch_template = module.compute.wordpress_launch_template
   
 }
