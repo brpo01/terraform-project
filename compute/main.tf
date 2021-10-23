@@ -67,7 +67,7 @@ resource "random_shuffle" "az_list" {
 resource "aws_launch_template" "bastion-launch-template" {
   image_id               = var.ami
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.bastion_sg.id]
+  vpc_security_group_ids = [var.bastion-sg]
 
   iam_instance_profile {
     name = aws_iam_instance_profile.ip.id
@@ -94,7 +94,7 @@ resource "aws_launch_template" "bastion-launch-template" {
   )
   }
 
-  user_data = filebase64("${path.module}/bastion.sh")
+  user_data = var.bastion_user_data
 }
 
 #--------- launch template for nginx
@@ -102,7 +102,7 @@ resource "aws_launch_template" "bastion-launch-template" {
 resource "aws_launch_template" "nginx-launch-template" {
   image_id               = var.ami
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.nginx-sg.id]
+  vpc_security_group_ids = [var.nginx-sg]
 
   iam_instance_profile {
     name = aws_iam_instance_profile.ip.id
@@ -129,7 +129,7 @@ resource "aws_launch_template" "nginx-launch-template" {
   )
   }
 
-  user_data = filebase64("${path.module}/nginx.sh")
+  user_data = var.nginx_user_data
 }
 
 # launch template for wordpress
@@ -137,7 +137,7 @@ resource "aws_launch_template" "nginx-launch-template" {
 resource "aws_launch_template" "wordpress-launch-template" {
   image_id               = var.ami
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.webserver-sg.id]
+  vpc_security_group_ids = [var.webserver-sg]
 
   iam_instance_profile {
     name = aws_iam_instance_profile.ip.id
@@ -165,14 +165,14 @@ resource "aws_launch_template" "wordpress-launch-template" {
 
   }
 
-  user_data = filebase64("${path.module}/wordpress.sh")
+  user_data = var.wordpress_user_data
 }
 
 # launch template for toooling
 resource "aws_launch_template" "tooling-launch-template" {
   image_id               = var.ami
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.webserver-sg.id]
+  vpc_security_group_ids = [var.webserver-sg]
 
   iam_instance_profile {
     name = aws_iam_instance_profile.ip.id
@@ -200,6 +200,6 @@ resource "aws_launch_template" "tooling-launch-template" {
 
   }
 
-  user_data = filebase64("${path.module}/tooling.sh")
+  user_data = var.tooling_user_data
 }
 

@@ -51,5 +51,14 @@ module "rds" {
 }
 
 module "compute" {
-  
+  source = "./compute"
+  ami = var.ami
+  bastion-sg = module.security.bastion
+  nginx-sg = module.security.nginx
+  webserver-sg = module.security.webservers
+  keypair = var.keypair
+  bastion_user_data = filebase64("${path.module}/bastion.sh")
+  nginx_user_data = filebase64("${path.module}/nginx.sh")
+  wordpress_user_data = filebase64("${path.module}/wordpress.sh")
+  tooling_user_data = filebase64("${path.module}/tooling.sh")
 }

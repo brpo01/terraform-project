@@ -3,3 +3,21 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "ami" {}
+
+variable "bastion-sg" {}
+
+variable "nginx-sg" {}
+
+variable "webserver-sg" {}
+
+variable "bastion_user_data" {}
+
+variable "nginx_user_data" {}
+
+variable "tooling_user_data" {}
+
+variable "wordpress_user_data" {}
+
+variable "keypair" {}
