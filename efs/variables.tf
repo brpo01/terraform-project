@@ -9,3 +9,5 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "account_no" {}

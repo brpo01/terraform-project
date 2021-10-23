@@ -43,6 +43,7 @@ module "efs" {
 
 module "rds" {
   source = "./rds"
+  account_no = var.account_no
   private_subnet2 = module.networking.private_subnet2
   private_subnet3 = module.networking.private_subnet3
   master-username = var.master-username

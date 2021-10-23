@@ -58,8 +58,10 @@ resource "aws_iam_instance_profile" "ip" {
     role =  aws_iam_role.ec2_instance_role.name
 }
 
+data "aws_availability_zones" "available" {}
+
 resource "random_shuffle" "az_list" {
-  input        = data.aws_availability_zones.available.names
+  input    = data.aws_availability_zones.available.names
 }
 
 # ---- Launch templates for bastion  hosts
