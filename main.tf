@@ -19,5 +19,7 @@ module "security" {
 
 module "alb" {
   source = "./alb"
-  
+  ext-alb-sg = 
+  public_subnet = 
+
 }
