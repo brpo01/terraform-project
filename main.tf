@@ -17,3 +17,7 @@ module "security" {
   vpc_id = module.networking.vpc_id
 }
 
+module "alb" {
+  source = "./alb"
+  
+}
