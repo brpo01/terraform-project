@@ -15,6 +15,7 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
+//dynamodb table resource for state locking & consistency checking
 resource "aws_dynamodb_table" "terraform_locks" {
   name         = "terraform-locks"
   billing_mode = "PAY_PER_REQUEST"
@@ -24,3 +25,14 @@ resource "aws_dynamodb_table" "terraform_locks" {
     type = "S"
   }
 }
+
+//remote s3 backend where state files will be stored
+// terraform {
+//   backend "s3" {
+//     bucket         = "dev-terraform-bucket"
+//     key            = "global/s3/terraform.tfstate"
+//     region         = "eu-central-1"
+//     dynamodb_table = "terraform-locks"
+//     encrypt        = true
+//   }
+// }
