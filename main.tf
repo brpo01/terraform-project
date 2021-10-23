@@ -24,7 +24,7 @@ module "loadbalancing" {
   vpc_id = module.networking.vpc_id
   int-alb-sg = module.security.int-alb
   private_subnet0 = module.networking.private_subnet0
-  private_subnet1 = module.networing.private_subnet1
+  private_subnet1 = module.networking.private_subnet1
   certificate_arn = module.certificate.cert_validation_arn
 }
 
