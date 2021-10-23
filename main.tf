@@ -57,10 +57,10 @@ module "compute" {
   nginx-sg = module.security.nginx
   webserver-sg = module.security.webservers
   keypair = var.keypair
-  bastion_user_data = filebase64("${path.module}/bastion.sh")
-  nginx_user_data = filebase64("${path.module}/nginx.sh")
-  wordpress_user_data = filebase64("${path.module}/wordpress.sh")
-  tooling_user_data = filebase64("${path.module}/tooling.sh")
+  bastion_user_data = filebase64("${path.module}/user-data/bastion.sh")
+  nginx_user_data = filebase64("${path.module}/user-data/nginx.sh")
+  wordpress_user_data = filebase64("${path.module}/user-data/wordpress.sh")
+  tooling_user_data = filebase64("${path.module}/user-data/tooling.sh")
 }
 
 module "autoscaling" {
