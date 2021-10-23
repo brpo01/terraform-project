@@ -7,3 +7,5 @@ variable "public_subnet" {}
 variable "private_subnet0" {}
 
 variable "private_subnet1" {}
+
+variable "certificate_arn" {}

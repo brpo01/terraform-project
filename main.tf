@@ -25,4 +25,11 @@ module "loadbalancing" {
   int-alb-sg = module.security.int-alb
   private_subnet0 = module.networking.private_subnet0
   private_subnet1 = module.networing.private_subnet1
+  certificate_arn = module.certificate.cert_validation_arn
+}
+
+module "certificate" {
+  source = "./certificate"
+  ext-alb-dns-name = module.loadbalancing.ext-alb-dns-name
+  ext-alb-zone-id = module.loadbalancing.ext-alb-zone-id
 }
