@@ -1,3 +1,5 @@
+variable "vpc_id" {}
+
 variable "ext-alb-sg" {}
 
 variable "int-alb-sg" {}
