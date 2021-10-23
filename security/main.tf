@@ -23,14 +23,6 @@ resource "aws_security_group" "main-sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  tags = merge(
-    var.tags,
-      {
-        for_each = var.security_group
-        Name = each.value.name
-      },
-  )
 }
 
 # security group for nginx reverse proxy, to allow access only from the external load-balancer and bastion instance
