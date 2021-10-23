@@ -1,13 +1,3 @@
-variable "preferred_number_of_public_subnets" {
-  type        = number
-  description = "Number of public subnets"
-}
-
-variable "preferred_number_of_private_subnets" {
-  type        = number
-  description = "Number of private subnets"
-}
-
 variable "name" {
   type    = string
   default = "main"

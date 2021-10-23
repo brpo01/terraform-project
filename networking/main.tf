@@ -3,10 +3,6 @@ data "aws_availability_zones" "available" {
     state = "available"
 }
 
-provider "aws" {
-  region = var.region
-}
-
 # Create a random reosurce for shuffling availability zones for the subnet resources
 // resource "random_shuffle" "az-list" {
 //   input = data.aws_availability_zones.available.names
@@ -31,7 +27,7 @@ resource "aws_vpc" "main" {
 
 # Create public subnets1
 resource "aws_subnet" "public_subnet" {
-  count = var.preferred_number_of_public_subnets == null ? length(data.aws_availability_zones.available.names) : var.preferred_number_of_public_subnets
+  count = var.public_subnets
   vpc_id                  = aws_vpc.main.id
   cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index)
   map_public_ip_on_launch = true
