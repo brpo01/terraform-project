@@ -33,3 +33,10 @@ module "certificate" {
   ext-alb-dns-name = module.loadbalancing.ext-alb-dns-name
   ext-alb-zone-id = module.loadbalancing.ext-alb-zone-id
 }
+
+module "efs" {
+  source = "./efs"
+  private_subnet0 = module.networking.private_subnet0
+  private_subnet1 = module.networking.private_subnet1
+  datalayer-sg = module.security.datalayer
+}
