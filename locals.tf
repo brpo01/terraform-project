@@ -41,13 +41,19 @@ locals {
                     protocol = "tcp"
                     cidr_blocks = [0.0.0.0/0]
                 }
+                ssh = {
+                    from = 22
+                    to = 22
+                    protocol = "tcp"
+                    cidr_blocks = [0.0.0.0/0]
+                }
             }
         }
         int-alb = {
             name = "int-alb"
             description = "Internal Loadbalancer Security Group"
             ingress = {
-                ssh = {
+                http = {
                     from = 443
                     to = 443
                     protocol = "tcp"
@@ -55,5 +61,41 @@ locals {
                 }
             }
         }
+        webservers = {
+            name = "webservers"
+            description = "webservers security group"
+            ingress = {
+                http = {
+                    from = 443
+                    to = 443
+                    protocol = "tcp"
+                    cidr_blocks = [0.0.0.0/0]
+                }
+                ssh = {
+                    from = 22
+                    to = 22
+                    protocol = "tcp"
+                    cidr_blocks = [0.0.0.0/0]
+                }
+            }
+        }   
+        datalayer = {
+            name = "datalayer"
+            description = "datalayer security group"
+            ingress = {
+                nfs = {
+                    from = 2049
+                    to = 2049
+                    protocol = "tcp"
+                    cidr_blocks = [0.0.0.0/0]
+                }
+                mysql = {
+                    from = 3306
+                    to = 3306
+                    protocol = "tcp"
+                    cidr_blocks = [0.0.0.0/0]
+                }
+            }
+        }     
     }
 }
