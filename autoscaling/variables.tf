@@ -1,4 +1,6 @@
-variable "public_subnet" {}
+variable "public_subnet0" {}
+
+variable "public_subnet1" {}
 
 variable "bastion_launch_template" {}
 

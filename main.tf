@@ -20,7 +20,8 @@ module "security" {
 module "loadbalancing" {
   source = "./loadbalancing"
   ext-alb-sg = module.security.ext-alb
-  public_subnet = module.networking.public_subnet
+  public_subnet0 = module.networking.public_subnet0
+  public_subnet1 = module.networking.public_subnet1
   vpc_id = module.networking.vpc_id
   int-alb-sg = module.security.int-alb
   private_subnet0 = module.networking.private_subnet0
@@ -66,7 +67,8 @@ module "compute" {
 
 module "autoscaling" {
   source = "./autoscaling"
-  public_subnet = module.networking.public_subnet
+  public_subnet0 = module.networking.public_subnet0
+  public_subnet1 = module.networking.public_subnet1
   bastion_launch_template = module.compute.bastion_launch_template
   nginx_launch_template = module.compute.nginx_launch_template
   nginx_tgt_arn = module.loadbalancing.nginx_tgt_arn

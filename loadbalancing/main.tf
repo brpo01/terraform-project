@@ -7,7 +7,8 @@ resource "aws_lb" "ext-alb" {
   ]
 
   subnets = [
-    var.public_subnet
+    var.public_subnet0,
+    var.public_subnet1
   ]
 
    tags = merge(

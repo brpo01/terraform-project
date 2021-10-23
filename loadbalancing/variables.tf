@@ -4,7 +4,9 @@ variable "ext-alb-sg" {}
 
 variable "int-alb-sg" {}
 
-variable "public_subnet" {}
+variable "public_subnet0" {}
+
+variable "public_subnet1" {}
 
 variable "private_subnet0" {}
 
