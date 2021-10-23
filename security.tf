@@ -65,7 +65,7 @@ resource "aws_security_group" "bastion_sg" {
   )
 }
 
-#security group for nginx reverse proxy, to allow access only from the external load balancer and bastion instance
+#security group for nginx reverse proxy, to allow access only from the external load-balancer and bastion instance
 resource "aws_security_group" "nginx-sg" {
   name   = "nginx-sg"
   vpc_id = aws_vpc.main.id
