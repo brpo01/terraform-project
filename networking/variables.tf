@@ -48,3 +48,5 @@ variable "environment" {
   type = string
   default = "environment"
 }
+
+variable "security_group" {}
