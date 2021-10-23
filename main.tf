@@ -65,5 +65,5 @@ module "compute" {
 
 module "autoscaling" {
   source = "./autoscaling"
-  
+  public_subnet = module.networking.public_subnet
 }
