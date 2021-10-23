@@ -44,10 +44,6 @@ variable "master-password" {
   description = "RDS master password"
 }
 
-// variable "max_subnets" {
-//   default = 10
-// }
-
 variable "environment" {
   type = string
 }

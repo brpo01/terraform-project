@@ -29,6 +29,22 @@ variable "private_sn_count" {
   description = "Number of private subnets"
 }
 
+variable "tags" {
+  description = "A mapping of tags to assign to all resources."
+  type        = map(string)
+  default     = {}
+}
+
 variable "public_cidr" {}
 
 variable "private_cidr" {}
+
+variable "name" {
+  type    = string
+  default = "main"
+}
+
+variable "environment" {
+  type = string
+  default = "environment"
+}
