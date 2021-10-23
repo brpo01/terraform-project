@@ -36,6 +36,7 @@ module "certificate" {
 
 module "efs" {
   source = "./efs"
+  account_no = var.account_no
   private_subnet0 = module.networking.private_subnet0
   private_subnet1 = module.networking.private_subnet1
   datalayer-sg = module.security.datalayer
@@ -43,7 +44,6 @@ module "efs" {
 
 module "rds" {
   source = "./rds"
-  account_no = var.account_no
   private_subnet2 = module.networking.private_subnet2
   private_subnet3 = module.networking.private_subnet3
   master-username = var.master-username
