@@ -49,3 +49,7 @@ module "rds" {
   master-password = var.master-password
   datalayer-sg = module.security.datalayer
 }
+
+module "compute" {
+  
+}
