@@ -29,7 +29,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
 //remote s3 backend where state files will be stored
 terraform {
   backend "s3" {
-    bucket         = "dev-terraform-bucket"
+    bucket         = "rotimi-dev-terraform-bucket"
     key            = "global/s3/terraform.tfstate"
     region         = "eu-central-1"
     dynamodb_table = "terraform-locks"
