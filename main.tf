@@ -62,3 +62,8 @@ module "compute" {
   wordpress_user_data = filebase64("${path.module}/wordpress.sh")
   tooling_user_data = filebase64("${path.module}/tooling.sh")
 }
+
+module "autoscaling" {
+  source = "./autoscaling"
+  
+}
