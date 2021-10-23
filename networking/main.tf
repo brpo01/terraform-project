@@ -146,3 +146,4 @@ resource "aws_route" "public-rtb-route" {
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.main_igw.id
 }
+
