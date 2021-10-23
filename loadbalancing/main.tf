@@ -113,7 +113,7 @@ resource "aws_lb_target_group" "tooling-tgt" {
   port        = 443
   protocol    = "HTTPS"
   target_type = "instance"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = var.vpc_id
 }
 
 # For this aspect a single listener was created for the wordpress which is default,
