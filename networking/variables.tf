@@ -46,5 +46,5 @@ variable "name" {
 
 variable "environment" {
   type = string
-  default = "environment"
+  default = "production"
 }
