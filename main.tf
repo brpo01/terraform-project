@@ -17,9 +17,12 @@ module "security" {
   vpc_id = module.networking.vpc_id
 }
 
-module "alb" {
-  source = "./alb"
-  ext-alb-sg = 
-  public_subnet = 
-
+module "loadbalancing" {
+  source = "./loadbalancing"
+  ext-alb-sg = module.security.ext-alb
+  public_subnet = module.networking.public_subnet
+  vpc_id = module.networking.vpc_id
+  int-alb-sg = module.security.int-alb
+  private_subnet0 = module.networking.private_subnet0
+  private_subnet1 = module.networing.private_subnet1
 }
