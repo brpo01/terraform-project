@@ -23,6 +23,10 @@ resource "aws_vpc" "main" {
       Name = "main-vpc"
     }
   )
+
+  lifecycle {
+    create_before_destroy = true 
+  }
 }
 
 # Create public subnets
