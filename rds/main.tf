@@ -1,6 +1,6 @@
 # This section will create the subnet group for the RDS  instance using the private subnet
 resource "aws_db_subnet_group" "main-rds" {
-  name       = "main-rds"
+  name_prefix       = "main-rds"
   subnet_ids = [var.private_subnet2, var.private_subnet3]
 
  tags = merge(
@@ -9,8 +9,6 @@ resource "aws_db_subnet_group" "main-rds" {
       Name = "main-rds"
     },
   )
-
-  
 }
 
 # create the RDS instance with the subnets group
