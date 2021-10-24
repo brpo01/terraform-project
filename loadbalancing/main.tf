@@ -125,6 +125,11 @@ resource "aws_lb_target_group" "tooling-tgt" {
   protocol    = "HTTPS"
   target_type = "instance"
   vpc_id      = var.vpc_id
+
+   lifecycle {
+    ignore_changes = [name]
+    create_before_destroy = true
+  }
 }
 
 # For this aspect a single listener was created for the wordpress which is default,
