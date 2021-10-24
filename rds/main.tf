@@ -10,10 +10,7 @@ resource "aws_db_subnet_group" "main-rds" {
     },
   )
 
-  lifecycle {
-    ignore_changes = [name]
-    create_before_destroy = true
-  }
+  
 }
 
 # create the RDS instance with the subnets group
