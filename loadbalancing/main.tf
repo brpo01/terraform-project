@@ -37,6 +37,11 @@ resource "aws_lb_target_group" "nginx-tgt" {
   protocol    = "HTTPS"
   target_type = "instance"
   vpc_id      = var.vpc_id
+
+  lifecycle {
+    ignore_changes = [name]
+    create_before_destroy = true
+  }
 }
 
 // loadbalancer listener resource for knowing what port to listen & route traffic to target group
