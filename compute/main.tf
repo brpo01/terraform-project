@@ -20,6 +20,11 @@ resource "aws_iam_role" "ec2_instance_role" {
       Name = "aws assume role"
     },
   )
+
+  lifecycle {
+    ignore_changes = [name]
+    create_before_destroy = true
+  }
 }
 
 resource "aws_iam_policy" "policy" {
