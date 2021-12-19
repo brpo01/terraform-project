@@ -1,6 +1,3 @@
-# terraform-project
-Automate the deployment of AWS Infrastructure using Terraform
-
 # AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM. - TERRAFORM MODULES
 
 In this documentation, we'll be refactoring our terraform code from the last [project](https://github.com/brpo01/terraform-2/blob/master/terraform.md) into modules to make them reusable. We'll also be configuring aws s3 bucket as a remote backend to store state files and DynamoDB for state locking & consistency checking.
