@@ -1,4 +1,4 @@
-# AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM.
+## AUTOMATE INFRASTRUCTURE WITH IAC USING TERRAFORM.
 
 In this documentation, we'll be automating the provisioning of aws infrastructure with terraform using the architecture below. We'll also be configuring aws s3 bucket as a remote backend to store state files and DynamoDB for state locking & consistency checking.
 
