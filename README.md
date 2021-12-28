@@ -10,6 +10,23 @@ In this documentation, we'll be automating the provisioning of aws infrastructur
 
 ![Inked{87B177FE-6AC9-41F2-85E5-9817FE59C4A6} png_LI](https://user-images.githubusercontent.com/76074379/126080985-a8b289ed-0539-4d6e-a486-26a76ebf69f8.jpg)
 
+- Copy the secret access key and access key ID. Save them in a notepad temporarily.
+- Configure programmatic access from your workstation to connect to AWS using the access keys copied above and a Python SDK (boto3). You must have Python 3.6 or higher on your       workstation.
+
+    - **For Windows** (you may use Powershell or cmd. But I'll preferably use Gitbash)
+       - Run Powershell, cmd or Gitbash as Administrator
+       - Install aws CLI. Click [here](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html)
+       - Install and configure Python SDK. Click [here](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
+       - For easier authentication configuration - use AWS CLI with *aws configure* command. There'll be a prompt requesting for the your access key id & sercet access key. This will enable you to deploy the infrastructure on your AWS account using terraform.
+
+         ```
+         aws configure 
+         ```
+       - Install chocolatey. Click [here](https://docs.chocolatey.org/en-us/choco/setup)
+       - Install Terraform.
+         ```
+         choco install terraform
+         ```
 ## Introducing Backend on AWS S3
 Each Terraform configuration can specify a backend, which defines where and how operations are performed, where state snapshots are stored, etc.
 Take a peek into what the states file looks like. It is basically where terraform stores all the state of the infrastructure in json format.
