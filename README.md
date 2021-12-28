@@ -4,6 +4,12 @@ In this documentation, we'll be automating the provisioning of aws infrastructur
 
 ![tooling_project_15](https://user-images.githubusercontent.com/76074379/126079856-ac2b5dea-45d0-4f1f-85fa-54284a91a5de.png)
 
+## Prerequisites before writing Terraform code
+
+- On the console, create an IAM user, name it **terraform** (*ensure that the user has only programatic access to your AWS account*) and grant this user AdministratorAccess permissions.
+
+![Inked{87B177FE-6AC9-41F2-85E5-9817FE59C4A6} png_LI](https://user-images.githubusercontent.com/76074379/126080985-a8b289ed-0539-4d6e-a486-26a76ebf69f8.jpg)
+
 ## Introducing Backend on AWS S3
 Each Terraform configuration can specify a backend, which defines where and how operations are performed, where state snapshots are stored, etc.
 Take a peek into what the states file looks like. It is basically where terraform stores all the state of the infrastructure in json format.
