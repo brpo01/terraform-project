@@ -27,6 +27,7 @@ In this documentation, we'll be automating the provisioning of aws infrastructur
          ```
          choco install terraform
          ```
+
 ## Introducing Backend on AWS S3
 Each Terraform configuration can specify a backend, which defines where and how operations are performed, where state snapshots are stored, etc.
 Take a peek into what the states file looks like. It is basically where terraform stores all the state of the infrastructure in json format.
